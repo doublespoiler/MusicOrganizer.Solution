@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-  <body>
-    @{
-      Layout = "_Layout";
-    }
-  </body>
-</html>
+
+@{
+  Layout = "_Layout";
+}
+@using MusicOrganizer.Models;
+<h3>Add a New Record</h3>
+<form action="/record" method="post">
+  <label for="title">Title:</label>
+  <input id="title" name="title" type="text">
+  <label for="Artist">Artist:</label>
+  <input id="Artist" name="Artist" type="text">
+  <label for="genre">Genre:</label>
+  <input id="genre" name="genre" type="text">
+  <label for="type">Media Type:</label>
+  <input id="type" name="type" type="text">
+  <button type="submit">Add</button>
+</form>
+

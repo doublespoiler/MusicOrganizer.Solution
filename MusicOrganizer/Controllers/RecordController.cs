@@ -12,7 +12,8 @@ namespace MusicOrganizer.Controllers
       [HttpGet("/record")] 
       public ActionResult Index() //shows all records
       {
-        return View();
+        List<Record> allRecords = Record.GetAll();
+        return View(allRecords);
       }
 
       [HttpGet("/record/new")]
@@ -26,6 +27,32 @@ namespace MusicOrganizer.Controllers
       {
         Record newRecord = new Record(title, artist, genre, type);
         return RedirectToAction("Index");
+      }
+
+      [HttpGet("/record/{id}")]
+      public ActionResult Show(int id)
+      {
+        Record foundRecord = Record.Find(id);
+        return View(foundRecord);
+      }
+
+      [HttpGet("/record/{id}/edit")]
+      public ActionResult Edit(int id)
+      {
+        Record foundRecord = Record.Find(id);
+        return View(foundRecord);
+      }
+
+      [HttpPost("/record/{id}")]
+      public ActionResult Update(int id, string title, string artist, string genre, string type, List<Song> songs)
+      {
+        Record toUpdate = Record.Find(id);
+        toUpdate.Title = title;
+        toUpdate.Artist = artist;
+        toUpdate.Genre = genre;
+        toUpdate.Type = type.ToUpper();
+        toUpdate.Songs = songs;
+        return RedirectToAction("Show", new {id = id});
       }
     }
 }

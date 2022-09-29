@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-  <body>
-    @{
-      Layout = "_Layout";
+
+@{
+  Layout = "_Layout";
+}
+@using MusicOrganizer.Models;
+
+  <h3>Album Title: @Model.Title</h3>
+  <h3>Album Artist: @Model.Artist</h3>
+  <h3>Album Genre: @Model.Genre</h3>
+  <h3>Album Type: @Model.Type</h3>
+
+  @if (Model.Songs.Count == 0)
+  {
+    <p>There are no songs in this album! Bummer.</p>
+  }
+
+  <h3>Songs:</h3><br>
+  <ul>
+    @foreach (Song song in Model.Songs)
+    {
+      <li>song.Title</li>
     }
-  </body>
-</html>
+  </ul>
+<h3><a href="/record/@Model.Id/edit">Edit this Album</a></h3>
+
+<h3><a href="/record">Go Back to Your Collection</h3>
+
+
+

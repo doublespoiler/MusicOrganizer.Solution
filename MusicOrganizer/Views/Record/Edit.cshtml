@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+@using MusicOrganizer.Models;
+<h3>Edit Album @Model.Title</h3>
+<form action="/record/@Model.Id" method="post">
+  <label for="title">Title:</label>
+  <input id="title" name="title" type="text" placeholder="@Model.Title">
+  <label for="Artist">Artist:</label>
+  <input id="Artist" name="Artist" type="text" placeholder="@Model.Artist">
+  <label for="genre">Genre:</label>
+  <input id="genre" name="genre" type="text" placeholder="@Model.Genre">
+  <label for="type">Media Type:</label>
+  <input id="type" name="type" type="text" placeholder="@Model.Type">
+  <input id="songs" name="songs" type="hidden" value="@Model.Songs">
+  <button type="submit">Edit</button>
+</form>
