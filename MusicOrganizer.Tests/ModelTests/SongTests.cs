@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToDoList.Models;
+using MusicOrganizer.Models;
 using System.Collections.Generic;
 using System;
 
@@ -10,7 +10,7 @@ namespace MusicOrganizer.Tests
   {
     public void Dispose()
     {
-      Category.ClearAll();
+      Record.ClearAll();
     }
     [TestMethod]
     public void CategoryConstructor_CreatesInstanceOfCategory_Category()
