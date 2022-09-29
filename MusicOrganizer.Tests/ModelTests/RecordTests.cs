@@ -54,6 +54,10 @@ namespace MusicOrganizer.Tests
       CollectionAssert.AreEqual(newList, result); 
     }
 
-
+    [TestMethod]
+    public void Find_ReturnRecordById_Record()
+    {
+      Assert.AreEqual(newRecord, Record.Find(1));
+    }
   }
 }
